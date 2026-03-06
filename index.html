@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Warehouse Formal Application & Onboarding Gateway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#080e1a; --navy2:#0d1626; --card:#111c2e; --card2:#162035;
+    --border:rgba(255,255,255,0.07); --gold:#e8a820; --gold2:#f5c842;
+    --blue:#1a6fff; --blue2:#4d94ff; --text:#d4dde8; --muted:#7a8fa8;
+    --white:#ffffff; --green:#22c55e; --red:#ef4444; --radius:12px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,14,26,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 5%;}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .logo{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px;text-decoration:none;}
+  .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;}
+  .nav-links{display:flex;align-items:center;gap:22px;}
+  .nav-links a{color:var(--muted);font-size:.86rem;text-decoration:none;transition:color .2s;}
+  .nav-links a:hover{color:var(--white);}
+  .nav-cta{background:var(--gold);color:#000;font-weight:700;font-size:.84rem;padding:9px 20px;border-radius:6px;text-decoration:none;transition:background .2s;white-space:nowrap;}
+  .nav-cta:hover{background:var(--gold2);}
+
+  .hero{padding:130px 5% 96px;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(26,111,255,.13) 0%,transparent 70%),radial-gradient(ellipse 45% 40% at 80% 60%,rgba(232,168,32,.07) 0%,transparent 60%),var(--navy);text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.013'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(232,168,32,.11);border:1px solid rgba(232,168,32,.3);color:var(--gold);font-size:.78rem;font-weight:700;padding:5px 15px;border-radius:20px;margin-bottom:28px;letter-spacing:.07em;text-transform:uppercase;}
+  .hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.8rem,6vw,4.9rem);font-weight:800;line-height:1.04;color:var(--white);max-width:840px;margin:0 auto 22px;}
+  .hero h1 em{color:var(--gold);font-style:normal;}
+  .hero-sub{font-size:clamp(.98rem,2vw,1.18rem);color:var(--muted);max-width:580px;margin:0 auto 36px;}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:44px;}
+  .btn-primary{background:var(--gold);color:#000;font-weight:700;font-size:.96rem;padding:14px 30px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:all .2s;font-family:inherit;}
+  .btn-primary:hover{background:var(--gold2);transform:translateY(-1px);}
+  .btn-secondary{background:rgba(255,255,255,.07);color:var(--white);font-weight:600;font-size:.96rem;padding:14px 30px;border-radius:8px;border:1px solid var(--border);text-decoration:none;display:inline-block;cursor:pointer;transition:all .2s;font-family:inherit;}
+  .btn-secondary:hover{background:rgba(255,255,255,.12);}
+  .trust-strip{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;font-size:.81rem;color:var(--muted);}
+  .trust-strip span{display:flex;align-items:center;gap:6px;}
+  .dot-g{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
+
+  section{padding:80px 5%;}
+  .container{max-width:1200px;margin:0 auto;}
+  .section-label{font-size:.74rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;}
+  .section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:var(--white);line-height:1.08;margin-bottom:14px;}
+  .section-sub{color:var(--muted);max-width:580px;font-size:1.02rem;margin-bottom:44px;}
+  .bg2{background:var(--navy2);}
+
+  .proof-bar{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:44px 5%;}
+  .proof-bar .container{display:flex;flex-direction:column;align-items:center;gap:32px;}
+  .proof-heading{font-size:.84rem;color:var(--muted);text-align:center;}
+  .stars-big{color:var(--gold);font-size:1.15rem;margin-bottom:4px;}
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;width:100%;}
+  .review-card{background:var(--navy2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;}
+  .review-stars{color:var(--gold);font-size:.87rem;margin-bottom:10px;}
+  .review-text{color:var(--text);font-size:.91rem;margin-bottom:14px;font-style:italic;}
+  .review-author{display:flex;align-items:center;gap:10px;}
+  .review-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;color:#fff;flex-shrink:0;}
+  .review-name{font-size:.87rem;font-weight:600;color:var(--white);}
+  .review-role{font-size:.77rem;color:var(--muted);}
+
+  .gateway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;}
+  .gateway-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:border-color .2s;}
+  .gc-gold{border-color:rgba(232,168,32,.3);}
+  .gc-blue{border-color:rgba(26,111,255,.3);}
+  .gc-red{border-color:rgba(239,68,68,.25);}
+  .g-icon{width:50px;height:50px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;}
+  .gi-gold{background:rgba(232,168,32,.12);}
+  .gi-blue{background:rgba(26,111,255,.12);}
+  .gi-red{background:rgba(239,68,68,.1);}
+  .gi-green{background:rgba(34,197,94,.12);}
+  .gateway-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:10px;}
+  .gateway-card p{font-size:.91rem;color:var(--muted);line-height:1.6;}
+  .warn-note{margin-top:14px;padding:11px 14px;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:8px;font-size:.82rem;color:#fca5a5;}
+
+  .audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+  .audience-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;text-align:center;transition:border-color .2s;}
+  .audience-card:hover{border-color:rgba(232,168,32,.3);}
+  .audience-icon{font-size:2.2rem;margin-bottom:14px;display:block;}
+  .audience-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:8px;}
+  .audience-card p{font-size:.86rem;color:var(--muted);}
+
+  .stats-bar{background:linear-gradient(135deg,var(--card2),var(--card));border:1px solid var(--border);border-radius:var(--radius);padding:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px;text-align:center;}
+  .stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.8rem;font-weight:800;color:var(--gold);line-height:1;}
+  .stat-label{font-size:.82rem;color:var(--muted);margin-top:6px;}
+
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;}
+  .feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;transition:border-color .2s;}
+  .feature-card:hover{border-color:rgba(232,168,32,.3);}
+  .f-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px;}
+  .feature-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:700;color:var(--white);margin-bottom:10px;}
+  .feature-card p{font-size:.9rem;color:var(--muted);}
+
+  .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:2px;background:var(--border);border-radius:var(--radius);overflow:hidden;}
+  .step-card{background:var(--card);padding:32px 26px;}
+  .step-num{font-family:'Barlow Condensed',sans-serif;font-size:3rem;font-weight:800;color:rgba(232,168,32,.14);line-height:1;margin-bottom:14px;}
+  .step-icon{font-size:1.6rem;margin-bottom:10px;display:block;}
+  .step-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:8px;}
+  .step-card p{font-size:.88rem;color:var(--muted);line-height:1.55;}
+
+  .tracking-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .tracking-visual{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;}
+  .tracking-visual h4{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:16px;}
+  .track-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:.88rem;}
+  .track-row:last-of-type{border-bottom:none;}
+  .track-product{color:var(--text);}
+  .track-up{color:#f87171;font-weight:700;}
+  .track-down{color:var(--green);font-weight:700;}
+  .track-neutral{color:var(--muted);}
+  .alert-pill{display:inline-flex;align-items:center;gap:5px;background:rgba(232,168,32,.1);border:1px solid rgba(232,168,32,.25);color:var(--gold);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:14px;}
+  .t-points{display:flex;flex-direction:column;gap:20px;}
+  .t-point{display:flex;gap:14px;align-items:flex-start;}
+  .t-point-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+  .tpi-gold{background:rgba(232,168,32,.1);border:1px solid rgba(232,168,32,.2);}
+  .tpi-blue{background:rgba(26,111,255,.1);border:1px solid rgba(26,111,255,.2);}
+  .tpi-green{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);}
+  .t-point h4{font-weight:600;color:var(--white);font-size:.93rem;margin-bottom:4px;}
+  .t-point p{font-size:.86rem;color:var(--muted);}
+
+  .fee-section{background:var(--navy2);}
+  .fee-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:22px;}
+  .fee-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:34px;text-align:center;}
+  .fee-card.featured{border-color:var(--gold);background:linear-gradient(135deg,rgba(232,168,32,.08),var(--card));position:relative;}
+  .fee-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:4px 14px;border-radius:20px;text-transform:uppercase;white-space:nowrap;}
+  .fee-pct{font-family:'Barlow Condensed',sans-serif;font-size:3.4rem;font-weight:800;color:var(--gold);line-height:1;margin-bottom:8px;}
+  .fee-label{font-size:.87rem;color:var(--muted);margin-bottom:14px;}
+  .fee-desc{font-size:.87rem;color:var(--text);}
+
+  .nolock-banner{background:linear-gradient(135deg,rgba(34,197,94,.07),rgba(26,111,255,.05));border:1px solid rgba(34,197,94,.2);border-radius:var(--radius);padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .nolock-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:20px;}
+  .nolock-list li{display:flex;align-items:center;gap:12px;font-size:.96rem;color:var(--text);}
+  .ck{width:24px;height:24px;border-radius:50%;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:.8rem;flex-shrink:0;}
+  .nolock-cta-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;text-align:center;}
+  .big-zero{font-family:'Barlow Condensed',sans-serif;font-size:5rem;font-weight:800;color:var(--green);line-height:1;}
+
+  .compare-table{width:100%;border-collapse:collapse;border-radius:var(--radius);overflow:hidden;}
+  .compare-table th{background:var(--card2);font-family:'Barlow Condensed',sans-serif;font-size:.98rem;font-weight:700;color:var(--white);padding:15px 18px;text-align:left;border-bottom:1px solid var(--border);}
+  .compare-table th:last-child{color:var(--gold);}
+  .compare-table td{padding:13px 18px;font-size:.88rem;color:var(--text);border-bottom:1px solid var(--border);background:var(--card);}
+  .compare-table tr:last-child td{border-bottom:none;}
+  .tick{color:var(--green);font-weight:600;}
+  .neutral{color:var(--muted);}
+
+  .compliance-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .c-points{display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+  .c-point{display:flex;gap:14px;align-items:flex-start;}
+  .c-icon{width:36px;height:36px;border-radius:8px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;margin-top:2px;}
+  .c-point h4{font-weight:600;color:var(--white);font-size:.92rem;margin-bottom:3px;}
+  .c-point p{font-size:.85rem;color:var(--muted);}
+  .wh-box{background:var(--card);border:1px solid rgba(34,197,94,.25);border-radius:var(--radius);padding:32px;}
+  .wh-box h3{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:14px;}
+  .wh-box p{font-size:.88rem;color:var(--muted);margin-bottom:12px;}
+  .wh-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .wh-list li{display:flex;gap:10px;align-items:flex-start;font-size:.87rem;color:var(--text);}
+  .wh-list li::before{content:'→';color:var(--gold);flex-shrink:0;font-weight:700;}
+  .pill-g{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.74rem;font-weight:600;background:rgba(34,197,94,.12);color:var(--green);margin-bottom:14px;}
+
+  .faq-grid{display:flex;flex-direction:column;gap:10px;max-width:820px;}
+  .faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+  .faq-q{padding:17px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--white);font-size:.92rem;user-select:none;gap:12px;}
+  .faq-q:hover{background:var(--card2);}
+  .faq-arrow{font-size:1.15rem;color:var(--gold);transition:transform .25s;flex-shrink:0;}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .faq-a-inner{padding:0 22px 16px;font-size:.89rem;color:var(--muted);line-height:1.65;}
+  .faq-item.open .faq-arrow{transform:rotate(45deg);}
+  .faq-item.open .faq-a{max-height:260px;}
+
+  .forms-section{background:var(--navy2);}
+  .forms-tabs{display:flex;gap:4px;margin-bottom:32px;background:var(--card);border:1px solid var(--border);padding:4px;border-radius:10px;width:fit-content;flex-wrap:wrap;}
+  .form-tab{padding:10px 22px;border-radius:7px;cursor:pointer;font-size:.86rem;font-weight:600;color:var(--muted);transition:all .2s;border:none;background:transparent;font-family:inherit;}
+  .form-tab.active{background:var(--gold);color:#000;}
+  .form-panel{display:none;}
+  .form-panel.active{display:block;}
+  .form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .form-info h2{font-family:'Barlow Condensed',sans-serif;font-size:1.85rem;font-weight:800;color:var(--white);margin-bottom:12px;}
+  .form-info p{font-size:.92rem;color:var(--muted);}
+  .form-micro{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .form-micro span{display:flex;align-items:center;gap:8px;font-size:.83rem;color:var(--muted);}
+  .chk{color:var(--green);font-size:.88rem;flex-shrink:0;}
+  .a-box{margin-top:16px;padding:12px 14px;border-radius:8px;}
+  .a-gold{background:rgba(232,168,32,.07);border:1px solid rgba(232,168,32,.25);}
+  .a-blue{background:rgba(26,111,255,.07);border:1px solid rgba(26,111,255,.22);}
+  .a-box .a-title{font-size:.81rem;font-weight:700;margin-bottom:4px;}
+  .a-gold .a-title{color:var(--gold);}
+  .a-blue .a-title{color:var(--blue2);}
+  .a-box .a-body{font-size:.81rem;color:var(--muted);}
+  .form-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;}
+  .form-group{margin-bottom:15px;}
+  .form-group label{display:block;font-size:.79rem;font-weight:600;color:var(--muted);margin-bottom:6px;letter-spacing:.04em;text-transform:uppercase;}
+  .form-group input,.form-group textarea{width:100%;background:var(--navy);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:.92rem;font-family:inherit;padding:11px 14px;outline:none;transition:border-color .2s;}
+  .form-group input:focus,.form-group textarea:focus{border-color:var(--gold);}
+  .form-group textarea{resize:vertical;min-height:84px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .cal-btn{width:100%;background:transparent;border:1px dashed rgba(232,168,32,.4);border-radius:8px;padding:13px;color:var(--gold);font-size:.86rem;font-weight:600;cursor:pointer;transition:all .2s;margin-bottom:13px;font-family:inherit;}
+  .cal-btn:hover{background:rgba(232,168,32,.07);border-color:var(--gold);}
+  .sub-btn{width:100%;background:var(--gold);color:#000;font-weight:700;font-size:.96rem;padding:14px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;transition:all .2s;}
+  .sub-btn:hover{background:var(--gold2);}
+  .success-msg{display:none;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.3);border-radius:8px;padding:18px;color:var(--green);font-size:.91rem;text-align:center;margin-top:12px;}
+
+  .disclaimer-section{padding:40px 5%;}
+  .disclaimer-box{max-width:920px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;}
+  .disclaimer-box h4{font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .disclaimer-box p{font-size:.79rem;color:var(--muted);line-height:1.72;}
+
+  footer{background:var(--navy2);border-top:1px solid var(--border);padding:30px 5%;}
+  .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;}
+  .footer-links{display:flex;gap:18px;}
+  .footer-links a{font-size:.81rem;color:var(--muted);text-decoration:none;}
+  .footer-links a:hover{color:var(--white);}
+  .footer-copy{font-size:.79rem;color:var(--muted);}
+
+  .reveal{opacity:1;transform:none;transition:all .5s ease;}
+  .reveal.animate-ready{opacity:0;transform:translateY(18px);}
+  .revealed{opacity:1;transform:none;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
+  .hero > .container > *{animation:fadeUp .55s ease both;}
+  .hero .hero-badge{animation-delay:.08s;}
+  .hero h1{animation-delay:.18s;}
+  .hero .hero-sub{animation-delay:.28s;}
+  .hero .hero-btns{animation-delay:.38s;}
+  .hero .trust-strip{animation-delay:.48s;}
+
+  /* ── Original Story Section (Built by the Trade) ── */
+  .origin-section{background:var(--navy2);}
+  .origin-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  .origin-timeline{display:flex;flex-direction:column;gap:0;}
+  .origin-entry{border-left:3px solid rgba(232,168,32,.3);padding:0 0 32px 28px;position:relative;}
+  .origin-entry:last-child{padding-bottom:0;}
+  .origin-entry::before{content:'';position:absolute;left:-7px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--gold);border:2px solid var(--navy2);}
+  .origin-tag{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block;}
+  .origin-entry h3{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:700;color:var(--white);margin-bottom:10px;}
+  .origin-entry p{font-size:.88rem;color:var(--muted);line-height:1.7;}
+  .origin-right{display:flex;flex-direction:column;gap:20px;}
+  .origin-quote{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--radius);padding:28px 30px;}
+  .origin-quote blockquote{font-size:1.08rem;font-style:italic;color:var(--white);line-height:1.6;margin-bottom:16px;}
+  .origin-quote cite{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-style:normal;}
+  .origin-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .origin-stat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;}
+  .origin-stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:800;color:var(--gold);line-height:1;}
+  .origin-stat-label{font-size:.78rem;color:var(--muted);margin-top:5px;}
+  .origin-cta-box{background:var(--card);border:1px solid rgba(232,168,32,.25);border-radius:var(--radius);padding:24px;text-align:center;}
+  .origin-cta-box p{font-size:.84rem;color:var(--muted);margin-bottom:6px;}
+  .origin-cta-box strong{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--white);display:block;margin-bottom:4px;}
+  .origin-cta-box span{font-size:.82rem;color:var(--gold);}
+
+  /* ── New Client Story Section ── */
+  .story-section{background:var(--navy);}
+  .story-grid{display:flex;flex-direction:column;gap:0;}
+  .story-entry{border-left:3px solid rgba(232,168,32,.25);padding:0 0 36px 32px;position:relative;}
+  .story-entry:last-child{padding-bottom:0;}
+  .story-entry::before{content:'';position:absolute;left:-7px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--gold);border:2px solid var(--navy);}
+  .story-tag{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block;}
+  .story-entry h3{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:12px;}
+  .story-entry p{font-size:.9rem;color:var(--muted);line-height:1.72;margin-bottom:0;}
+  .story-entry p+p{margin-top:10px;}
+
+  /* ── Fee Story Section ── */
+  .fee-story-section{background:var(--navy2);}
+  .fee-story-grid{display:flex;flex-direction:column;gap:0;}
+  .fee-story-entry{border-left:3px solid rgba(34,197,94,.25);padding:0 0 36px 32px;position:relative;}
+  .fee-story-entry:last-child{padding-bottom:0;}
+  .fee-story-entry::before{content:'';position:absolute;left:-7px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--green);border:2px solid var(--navy2);}
+  .fee-story-tag{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:6px;display:block;}
+  .fee-story-entry h3{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:12px;}
+  .fee-story-entry p{font-size:.9rem;color:var(--muted);line-height:1.72;margin-bottom:0;}
+  .fee-story-entry p+p{margin-top:10px;}
+  .fee-example-box{margin-top:14px;padding:16px 20px;background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.18);border-radius:10px;font-size:.87rem;color:var(--text);}
+  .fee-example-box strong{color:var(--green);}
+
+  @media(max-width:900px){.tracking-grid,.compliance-grid,.nolock-banner,.origin-layout{grid-template-columns:1fr;}.form-wrap{grid-template-columns:1fr;}}
+  @media(max-width:768px){.nav-links{display:none;}.form-row{grid-template-columns:1fr;}.forms-tabs{flex-direction:column;width:100%;}section{padding:56px 5%;}.hero{padding:100px 5% 68px;}.stats-bar{grid-template-columns:1fr 1fr;}.compare-table{font-size:.8rem;}.compare-table th,.compare-table td{padding:9px 10px;}.origin-stats{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#"><span class="logo-dot"></span>Affiliate Warehouse</a>
+    <div class="nav-links">
+      <a href="#our-story">Our Story</a>
+      <a href="#who-for">Who This Is For</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#tracking">Price Tracking</a>
+      <a href="#pricing">Fees</a>
+      <a href="#compliance">Compliance</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#apply" class="nav-cta">Apply for Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">⚡ Formal Application Gateway Approved Preferred Contractors Only</div>
+    <h1>We Help Our Preferred Contractors<br>Access <em>Better Pricing</em> <br>Transparently</h1>
+    <p class="hero-sub">Collective buying power, price tracking, and corporate-level trade accounts exclusively for approved preferred contractors. Access is never automatic.</p>
+    <div class="hero-btns">
+      <a href="#apply" class="btn-primary">Apply for Preferred Contractor Status</a>
+      <a href="#apply" class="btn-secondary" onclick="setTimeout(()=>{openTab(1)},150)">Request a Call-Back</a>
+    </div>
+    <div class="trust-strip">
+      <span><span class="dot-g"></span>Approval required — not open access</span>
+      <span><span class="dot-g"></span>No discount = no charge</span>
+      <span><span class="dot-g"></span>Wholesaler-safe model</span>
+      <span><span class="dot-g"></span>Applications individually assessed</span>
+      <span><span class="dot-g"></span>Optional price-change alerts</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<div class="proof-bar">
+  <div class="container">
+    <div class="proof-heading">
+      <div class="stars-big">★★★★★</div>
+      Trusted by approved preferred contractors across Australia
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I didn't have to change suppliers or learn a new system. Affiliate Warehouse gave us the buying power of a large operator on the exact same gear we normally use."</p>
+        <div class="review-author"><div class="review-avatar">MT</div><div><div class="review-name">Marc T.</div><div class="review-role">Electrical Contractor, Brisbane QLD</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The price tracking caught a supplier increase on our most common cable before we'd even noticed. We compared side-by-side and maintained our quoting margins without any changes."</p>
+        <div class="review-author"><div class="review-avatar">SL</div><div><div class="review-name">Sarah L.</div><div class="review-role">HVAC Business Owner, Melbourne VIC</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The fee model is properly aligned they only earn when we save. After six months it's become a standard part of how we manage procurement on every job."</p>
+        <div class="review-author"><div class="review-avatar">DJ</div><div><div class="review-name">Dean J.</div><div class="review-role">Solar Installer, Perth WA</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OUR STORY — ORIGINAL "BUILT BY THE TRADE" SECTION (PRESERVED AS-IS) -->
+<section id="our-story" class="origin-section">
+  <div class="container">
+    <span class="section-label reveal">Our Story</span>
+    <h2 class="section-title reveal">Built by the Trade.<br>Scaled the Right Way.</h2>
+    <div class="origin-layout reveal">
+
+      <div class="origin-timeline">
+        <div class="origin-entry">
+          <span class="origin-tag">25+ Years of Partnership</span>
+          <h3>Aussie Antennas &amp; Electrical</h3>
+          <p>Affiliate Warehouse was created alongside its sister company, Aussie Antennas and Electrical, after more than 25 years of working with trusted contractors across Australia. Aussie Antennas and Electrical grew nationally by partnering with preferred contractors — not by owning trucks in every city. The model worked.</p>
+        </div>
+        <div class="origin-entry">
+          <span class="origin-tag">The Problem We Identified</span>
+          <h3>National Scale. Individual Pricing.</h3>
+          <p>As the work scaled, the purchasing didn't. Every contractor bought materials through their own trade accounts, paying small-business pricing with inconsistent discounts and layered mark-ups. National-level spending was being handled like hundreds of separate businesses.</p>
+        </div>
+        <div class="origin-entry">
+          <span class="origin-tag">The Solution</span>
+          <h3>Affiliate Warehouse</h3>
+          <p>Affiliate Warehouse was built as a separate, independent company to fix that one shared purchasing system, corporate-level supplier pricing, used by our preferred contractors nationwide. Same independence. Better pricing. A system that finally matches the scale of the work.</p>
+        </div>
+      </div>
+
+      <div class="origin-right">
+        <div class="origin-quote">
+          <blockquote>"National-level spending was being handled like hundreds of separate businesses. We built Affiliate Warehouse to fix that one shared purchasing system, corporate-level supplier pricing, used by our preferred contractors nationwide."</blockquote>
+          <cite>Affiliate Warehouse &amp; Aussie Antennas and Electrical</cite>
+        </div>
+        <div class="origin-stats">
+          <div class="origin-stat">
+            <div class="origin-stat-num">25+</div>
+            <div class="origin-stat-label">Years partnering with Australian contractors</div>
+          </div>
+          <div class="origin-stat">
+            <div class="origin-stat-num">2</div>
+            <div class="origin-stat-label">Sister companies, one aligned national model</div>
+          </div>
+        </div>
+        <div class="origin-cta-box">
+          <p>Same independence.</p>
+          <strong>Better Pricing.</strong>
+          <span>A system that matches the scale of the work.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEW CLIENT STORY — THE WAY TRADE PURCHASING HAS ALWAYS WORKED -->
+<section id="story-detail" class="story-section">
+  <div class="container">
+    <span class="section-label reveal">The Full Story</span>
+    <h2 class="section-title reveal" style="max-width:760px;">The Way Trade Purchasing Has Always Worked <br><span style="color:var(--gold);">And Why We Built Something Different.</span></h2>
+    <p class="section-sub reveal">A straightforward account of where Affiliate Warehouse came from, what problem it was built to solve, and how it works in practice.</p>
+    <div class="story-grid reveal">
+
+      <div class="story-entry">
+        <span class="story-tag">The Industry Problem</span>
+        <h3>The Way Trade Purchasing Has Always Worked</h3>
+        <p>For decades, trade pricing has operated on a simple and consistent principle: the more you buy, the better your rate. Large national operators with significant purchasing volumes access pricing tiers that independent contractors simply cannot reach on their own.</p>
+        <p>This isn't unfair it is the natural logic of wholesale distribution. But it has always meant that the independent electrician, the sole-trader HVAC business, and the small solar installation company pay more for the same products, from the same suppliers, simply because of scale. The system rewards volume. And independent contractors, by definition, operate without it.</p>
+      </div>
+
+      <div class="story-entry">
+        <span class="story-tag">The Founding Insight</span>
+        <h3>Where This Insight Came From</h3>
+        <p>The team behind Affiliate Warehouse didn't discover this problem through research or consulting reports. They lived it. With more than 25 years of experience operating in the trade industry and through building and running Aussie Antennas and Electrical they understood from the inside exactly how purchasing decisions are made, how pricing tiers function, and where independent contractors consistently lose ground to larger competitors.</p>
+        <p>It was not a theoretical gap. It was a daily reality — visible in every purchase order, every supplier negotiation, and every invoice comparison against a national operator. And it raised a straightforward question: what would happen if independent contractors could coordinate their purchasing volume, without giving up their existing supplier relationships, individual account traceability, or the wholesale systems they already relied on?</p>
+      </div>
+
+      <div class="story-entry">
+        <span class="story-tag">The Solution</span>
+        <h3>The Simple Idea That Followed</h3>
+        <p>The answer became Affiliate Warehouse. Not a buying group, not a reseller, and not a model that bypasses or undermines supplier relationships. Instead, a coordinated procurement structure that aggregates the purchasing volume of approved preferred contractors nationally allowing the network to access pricing structures typically reserved for large corporate operators, while every contractor continues to purchase through their own existing wholesale channels.</p>
+        <p>The concept is straightforward: the collective buying power of many, applied with the transparency and traceability that wholesalers expect. Each contractor retains their own account. Every purchase remains job-coded and fully traceable. Nothing about the way wholesalers operate is changed or circumvented.</p>
+      </div>
+
+      <div class="story-entry">
+        <span class="story-tag">The Build</span>
+        <h3>A System That Matches the Scale of the Work</h3>
+        <p>Delivering on that idea required more than a concept. It required establishing formal relationships with national wholesale networks TradeZone, Ideal Electrical, and Voltex and developing a system that could track, compare, and verify pricing across individual purchases without disrupting the way contractors actually work on the ground.</p>
+        <p>Every purchase moves through normal wholesaler systems. No goods are resold. No supplier terms are bypassed or altered. Affiliate Warehouse operates entirely within the existing wholesale infrastructure adding a layer of collective purchasing power without changing the mechanics that wholesalers and contractors already depend on.</p>
+      </div>
+
+      <div class="story-entry">
+        <span class="story-tag">The Foundation</span>
+        <h3>Built on 25+ Years of Contractor Relationships</h3>
+        <p>The credibility of Affiliate Warehouse is built on relationships, not software. Over 25 years of operating in the trade industry, the founding team developed deep, direct relationships with contractors, suppliers, and industry partners across Australia. These relationships form the foundation of the preferred contractor network and they are the reason the model works in practice, not just in principle.</p>
+        <p>Approval is never automatic. Every preferred contractor is individually reviewed and assessed. That standard exists because the model depends on contractors who understand it, operate within it with integrity, and contribute to the collective purchasing volume that benefits the entire network.</p>
+      </div>
+
+      <div class="story-entry">
+        <span class="story-tag">The Origin</span>
+        <h3>Affiliate Warehouse &amp; Aussie Antennas and Electrical</h3>
+        <p>Affiliate Warehouse was founded by the team behind Aussie Antennas and Electrical — a trade business with over 25 years of industry experience spanning installations, procurement, and contractor management across Australia. That operational background shapes everything about how Affiliate Warehouse is designed: the compliance-first approach, the non-exclusive and voluntary participation model, the transparency in fee structure, and the insistence on a formal, individually assessed approval process.</p>
+        <p>The founding experience is not simply context it is the reason the model exists. Affiliate Warehouse was built to solve a problem the founding team experienced directly, by people who understood the industry well enough to design something that works within it properly.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section id="who-for">
+  <div class="container">
+    <span class="section-label reveal">Who This Is For</span>
+    <h2 class="section-title reveal">This is a formal application gateway.<br><span style="color:var(--muted);font-size:82%;">Not open sign-up. Not instant access.</span></h2>
+    <p class="section-sub reveal">Affiliate Warehouse exists solely as an onboarding gateway for approved preferred contractors. Access to our shared national trade accounts is never automatic — all applications are individually assessed for suitability, compliance, and alignment with our standards.</p>
+    <div class="gateway-grid reveal">
+      <div class="gateway-card gc-gold">
+        <div class="g-icon gi-gold">🔐</div>
+        <h3>Existing Preferred Contractors</h3>
+        <p>If you already hold preferred contractor status, this is your formal registration point to access the shared national trade accounts under our coordinated collective purchasing structure.</p>
+        <div style="margin-top:20px;"><a href="#apply" class="btn-primary" style="font-size:.84rem;padding:10px 20px;">Register Your Access →</a></div>
+      </div>
+      <div class="gateway-card gc-blue">
+        <div class="g-icon gi-blue">📋</div>
+        <h3>Applying for Preferred Contractor Status</h3>
+        <p>If you're a trade business seeking preferred contractor status, submit a formal application here. Applications are reviewed and approved based on suitability, compliance standards, and alignment with our model.</p>
+        <div style="margin-top:20px;"><a href="#apply" class="btn-secondary" style="font-size:.84rem;padding:10px 20px;">Submit an Application →</a></div>
+      </div>
+      <div class="gateway-card gc-red">
+        <div class="g-icon gi-red">⚠️</div>
+        <h3>Access is Never Automatic</h3>
+        <p>Approval is required in all cases. Only approved preferred contractors may receive work from us and be granted access to the shared trade accounts.</p>
+        <div class="warn-note">Submitting an application does not guarantee approval. Access is limited strictly to approved preferred contractors in all circumstances.</div>
+        <div style="margin-top:14px;font-size:.82rem;color:var(--muted);">Questions first? <a href="#apply" style="color:var(--gold);text-decoration:none;" onclick="setTimeout(()=>{openTab(1)},150)">Book a call →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET AUDIENCE -->
+<section class="bg2">
+  <div class="container">
+    <span class="section-label reveal">Who We Work With</span>
+    <h2 class="section-title reveal">Built for Australian trade businesses.</h2>
+    <p class="section-sub reveal">Affiliate Warehouse works with independent trade contractors across the following industries, as well as the wholesalers who supply them.</p>
+    <div class="audience-grid reveal">
+      <div class="audience-card">
+        <span class="audience-icon">⚡</span>
+        <h3>Electrical Contractors</h3>
+        <p>Independent electricians and electrical businesses seeking better purchasing outcomes on cables, switchgear, and components.</p>
+      </div>
+      <div class="audience-card">
+        <span class="audience-icon">❄️</span>
+        <h3>HVAC & Air-Conditioning</h3>
+        <p>Heating, ventilation and air-conditioning businesses purchasing equipment and materials at scale across Australia.</p>
+      </div>
+      <div class="audience-card">
+        <span class="audience-icon">☀️</span>
+        <h3>Solar Installers</h3>
+        <p>Solar installation businesses seeking pricing visibility and collective leverage on panels, inverters, and system hardware.</p>
+      </div>
+      <div class="audience-card">
+        <span class="audience-icon">🏭</span>
+        <h3>Australian Wholesalers</h3>
+        <p>Suppliers exploring an aligned, compliance-first model for improved consolidated volume and purchasing consistency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POWER IN NUMBERS -->
+<section>
+  <div class="container">
+    <span class="section-label reveal">Power in Numbers. Safety in the System.</span>
+    <h2 class="section-title reveal" style="max-width:720px;">Independent contractors often pay a premium simply because they lack the volume of major national operators.</h2>
+    <p class="section-sub reveal">By aggregating the purchasing volume of our preferred contractor network, approved contractors may access pricing structures typically reserved for much larger organisations all subject to individual supplier approval and terms.</p>
+    <div class="stats-bar reveal" style="margin-bottom:40px;">
+      <div><div class="stat-num">3</div><div class="stat-label">National wholesaler networks</div></div>
+      <div><div class="stat-num">1.1%</div><div class="stat-label">Fee on verified savings only</div></div>
+      <div><div class="stat-num">$0</div><div class="stat-label">Fee if no discount achieved</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label">Wholesaler-traceable purchases</div></div>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="f-icon gi-blue">📈</div>
+        <h3>Improved Margin Visibility</h3>
+        <p>See side-by-side where your pricing stands across your existing accounts and Affiliate Warehouse giving you clear data to quote and purchase with confidence.</p>
+      </div>
+      <div class="feature-card">
+        <div class="f-icon gi-gold">💰</div>
+        <h3>Corporate-Tier Access via Volume</h3>
+        <p>By aggregating the collective purchasing volume of approved preferred contractors, pricing structures typically reserved for large national operators may become accessible subject to supplier approval.</p>
+      </div>
+      <div class="feature-card">
+        <div class="f-icon gi-green">✅</div>
+        <h3>Zero Disruption to Your Workflow</h3>
+        <p>You order through the same wholesale channels you already use. Nothing changes about your existing supplier relationships, processes, or traceability requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="bg2">
+  <div class="container">
+    <span class="section-label reveal">How It Works</span>
+    <h2 class="section-title reveal">Four steps to better pricing<br>without ever bypassing a wholesaler.</h2>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <span class="step-icon">📋</span>
+        <h3>Apply & Get Approved</h3>
+        <p>Submit a formal application or register as an existing preferred contractor. All applications are individually reviewed approval is required before any account access is granted.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <span class="step-icon">📈</span>
+        <h3>Access the Volume</h3>
+        <p>Approved preferred contractors may access pricing structures typically reserved for larger operators through aggregated collective purchasing volume subject to supplier approval and terms.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <span class="step-icon">🛒</span>
+        <h3>Order as Normal</h3>
+        <p>You order through the same wholesaler systems TradeZone, Ideal Electrical, Voltex. No reselling, no rerouting. All purchases remain job-coded and fully traceable.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <span class="step-icon">📊</span>
+        <h3>Track & Compare</h3>
+        <p>Our system monitors pricing over time. Compare against your original trade accounts at any time. Optional email alerts notify you when prices move on repeat purchases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE TRACKING & NOTIFICATIONS -->
+<section id="tracking">
+  <div class="container">
+    <span class="section-label reveal">Price Tracking & Notifications</span>
+    <h2 class="section-title reveal">Know when prices move.<br>Before it affects your quotes.</h2>
+    <p class="section-sub reveal">Our system monitors pricing on products you purchase repeatedly, over time. You can compare pricing at any time against prior purchases and optionally receive alerts when prices change.</p>
+    <div class="tracking-grid reveal">
+      <div class="t-points">
+        <div class="t-point">
+          <div class="t-point-icon tpi-gold">📈</div>
+          <div><h4>Monitors pricing over time</h4><p>The system tracks pricing history on products you buy repeatedly, so movements are visible against your prior purchase price not just today's market rate.</p></div>
+        </div>
+        <div class="t-point">
+          <div class="t-point-icon tpi-blue">🔔</div>
+          <div><h4>Optional price-change notifications</h4><p>Choose to receive email alerts when prices increase or decrease on products you regularly purchase. Opt in or out at any time entirely optional.</p></div>
+        </div>
+        <div class="t-point">
+          <div class="t-point-icon tpi-green">⚖️</div>
+          <div><h4>Compare at any time</h4><p>As an approved preferred contractor, you can compare Affiliate Warehouse pricing against your original trade accounts on demand with no obligation to use our pricing if it isn't better.</p></div>
+        </div>
+        <div class="t-point">
+          <div class="t-point-icon tpi-gold">📋</div>
+          <div><h4>Supports quoting accuracy and cost control</h4><p>Knowing when input prices have moved helps you maintain accurate quotes, protect margins, and make informed decisions on repeat purchases.</p></div>
+        </div>
+      </div>
+      <div class="tracking-visual">
+        <h4>Live Price Movement Example</h4>
+        <div class="track-row"><span class="track-product">2.5mm Twin &amp; Earth Cable (100m)</span><span class="track-up">▲ +4.2%</span></div>
+        <div class="track-row"><span class="track-product">15A GPO Single (10pk)</span><span class="track-down">▼ −1.8%</span></div>
+        <div class="track-row"><span class="track-product">25A MCB Single Pole</span><span class="track-neutral">— No change</span></div>
+        <div class="track-row"><span class="track-product">4mm Solar Cable (100m)</span><span class="track-down">▼ −3.1%</span></div>
+        <div class="track-row"><span class="track-product">Split System 2.5kW R32</span><span class="track-up">▲ +6.0%</span></div>
+        <div class="track-row"><span class="track-product">32A RCBO Double Pole</span><span class="track-neutral">— No change</span></div>
+        <div class="alert-pill">🔔 Price alerts active for 4 items</div>
+        <p style="font-size:.77rem;color:var(--muted);margin-top:12px;">Example only. Actual pricing set by wholesalers and subject to change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TRANSPARENCY & COMPARISON -->
+<section class="bg2">
+  <div class="container">
+    <span class="section-label reveal">Pricing Transparency & Comparison</span>
+    <h2 class="section-title reveal">Same products. Same suppliers.<br>Side-by-side — you decide.</h2>
+    <p class="section-sub reveal">As a preferred contractor you can run a side-by-side comparison between your existing trade accounts and Affiliate Warehouse pricing at any time. There is no obligation to use our pricing if it isn't better.</p>
+    <div class="reveal" style="overflow-x:auto;margin-bottom:0;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Your Standard Trade Account</th>
+            <th>Affiliate Warehouse (Approved Access)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Same wholesaler suppliers</td><td class="tick">✓ Yes</td><td class="tick">✓ Yes — TradeZone, Ideal Electrical, Voltex</td></tr>
+          <tr><td>Job-coded, traceable purchases</td><td class="tick">✓ Yes</td><td class="tick">✓ Yes — unchanged</td></tr>
+          <tr><td>Access to corporate-tier pricing</td><td class="neutral">— Individual volume only</td><td class="tick">✓ Collective volume (subject to supplier terms)</td></tr>
+          <tr><td>Price movement tracking over time</td><td class="neutral">— Not available</td><td class="tick">✓ Included</td></tr>
+          <tr><td>Optional price-change alerts</td><td class="neutral">— Not available</td><td class="tick">✓ Included</td></tr>
+          <tr><td>Side-by-side pricing comparison</td><td class="neutral">— Not available</td><td class="tick">✓ Compare against your own accounts anytime</td></tr>
+          <tr><td>Obligation to switch pricing</td><td class="neutral">N/A</td><td class="tick">✓ None — use only if it's better</td></tr>
+          <tr><td>Monthly fee</td><td class="neutral">— None</td><td class="tick">✓ 1.1% of verified savings only — $0 if no saving</td></tr>
+          <tr><td>Contracts or lock-ins</td><td class="neutral">Varies by supplier</td><td class="tick">✓ None whatsoever</td></tr>
+          <tr><td>Access requirement</td><td class="neutral">Standard account</td><td class="tick">✓ Formal application + individual approval required</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FEES & ALIGNED INCENTIVES -->
+<section id="pricing" class="fee-section">
+  <div class="container">
+    <span class="section-label reveal">Fees &amp; Aligned Incentives</span>
+    <h2 class="section-title reveal">No savings — no fee. Full stop.</h2>
+    <p class="section-sub reveal">Our fee structure means we only profit when you do. No subscriptions, no access fees, no charges unless a verified discount is achieved on a purchase.</p>
+    <div class="fee-grid reveal">
+      <div class="fee-card">
+        <div class="fee-pct" style="color:var(--muted);font-size:2.3rem;">$0</div>
+        <div class="fee-label">If no discount is achieved</div>
+        <div class="fee-desc">No charge. No subscription. No access fee. You continue using your existing supplier accounts as normal, at zero cost.</div>
+      </div>
+      <div class="fee-card featured">
+        <div class="fee-badge">Our Fee — When You Save</div>
+        <div class="fee-pct">1.1%</div>
+        <div class="fee-label">of the verified discount achieved</div>
+        <div class="fee-desc">Billed monthly, only on confirmed savings. The full remainder of the discount is retained by you. Fees are never charged on order volume — only on verified savings.</div>
+      </div>
+      <div class="fee-card">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:18px;">How Billing Works</div>
+        <div class="fee-desc" style="text-align:left;">
+          <p style="margin-bottom:10px;color:var(--muted);">When a discount is achieved on a purchase:</p>
+          <p style="color:var(--green);font-weight:600;margin-bottom:6px;">✓ Affiliate Warehouse retains: 1.1%</p>
+          <p style="color:var(--text);font-weight:600;margin-bottom:16px;">✓ You keep: the remainder</p>
+          <p style="color:var(--muted);font-size:.84rem;">Billed monthly. Only on verified savings. Never on volume or as a subscription. Never charged if no saving is achieved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW THE FEE STRUCTURE WORKS — STORYTELLING FORMAT -->
+<section id="fee-explained" class="fee-story-section">
+  <div class="container">
+    <span class="section-label reveal">Fee Structure — Explained</span>
+    <h2 class="section-title reveal" style="max-width:700px;">How the Fee Structure Works —<br><span style="color:var(--green);">Explained Simply.</span></h2>
+    <p class="section-sub reveal">The logic behind how Affiliate Warehouse charges, why it was designed this way, and what it means for your business in practice.</p>
+    <div class="fee-story-grid reveal">
+
+      <div class="fee-story-entry">
+        <span class="fee-story-tag">The Rationale</span>
+        <h3>Why the Fee Exists</h3>
+        <p>Affiliate Warehouse generates revenue in exactly one way: by retaining a small percentage of the verified savings it delivers to contractors. There are no subscriptions, no access costs, and no charges based on order volume or time period. If no saving is achieved on a purchase, nothing is charged for that purchase, or for any period where savings do not occur.</p>
+        <p>This structure was chosen deliberately. A fee that only applies to verified, confirmed savings means that Affiliate Warehouse's commercial interests are permanently aligned with the contractors it serves. The business only grows when it consistently delivers measurable outcomes.</p>
+      </div>
+
+      <div class="fee-story-entry">
+        <span class="fee-story-tag">The Mechanics</span>
+        <h3>How the Fee is Applied</h3>
+        <p>When a purchase is made through Affiliate Warehouse and a discount is verified against the contractor's standard trade pricing, Affiliate Warehouse retains 1.1% of that verified saving. The remainder the full balance of the discount is retained by the contractor. The fee is calculated monthly, applied only to confirmed savings, and is never estimated, approximated, or charged in advance.</p>
+        <div class="fee-example-box"><strong>Example:</strong> A contractor achieves a $1,000 verified discount on a purchase. Affiliate Warehouse retains $11 — 1.1% of the saving. The contractor keeps $989. The fee is always proportional, always calculated from the verified figure, and always transparent.</div>
+      </div>
+
+      <div class="fee-story-entry">
+        <span class="fee-story-tag">The Outcome for Contractors</span>
+        <h3>How Contractors Benefit</h3>
+        <p>The net result for approved preferred contractors is access to improved pricing structures without any fixed cost overhead. Because the fee is proportional to savings achieved — and zero when no savings are achieved there is no scenario in which a contractor loses money through participation. The risk is asymmetric in the contractor's favour: potential savings on one side, no financial downside on the other.</p>
+        <p>Combined with the price tracking system and side-by-side comparison tools available to approved preferred contractors, the model provides trade businesses with consistent, ongoing visibility over their purchasing position.</p>
+      </div>
+
+      <div class="fee-story-entry">
+        <span class="fee-story-tag">The Design Principle</span>
+        <h3>Transparent and Simple</h3>
+        <p>The fee structure was designed to be explained in a single conversation. There are no tiers, no thresholds, no volume requirements, and no complex conditions. If a saving is verified, 1.1% is retained by Affiliate Warehouse. If no saving is achieved, nothing is charged. Billing occurs monthly. Participation is non-exclusive and can be ended at any time with no exit fees or penalties of any kind.</p>
+        <p>This simplicity is intentional. A fee structure that requires a spreadsheet to understand creates doubt where there should be clarity. The model is designed to be understood immediately and it is.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NO LOCK-INS -->
+<section id="no-lockins">
+  <div class="container">
+    <span class="section-label reveal">Zero Lock-Ins</span>
+    <h2 class="section-title reveal">No contracts. No obligations.<br>Stop at any time.</h2>
+    <div class="nolock-banner reveal">
+      <div>
+        <p style="font-size:1.04rem;color:var(--muted);margin-bottom:4px;">Once approved, your participation is entirely on your own terms. There are no obligations beyond the fee on savings — which only applies when savings occur.</p>
+        <ul class="nolock-list">
+          <li><span class="ck">✓</span>No contracts or formal agreements required</li>
+          <li><span class="ck">✓</span>No minimum spend or purchase requirements</li>
+          <li><span class="ck">✓</span>No exclusivity keep using your existing accounts</li>
+          <li><span class="ck">✓</span>Stop using Affiliate Warehouse at any time</li>
+          <li><span class="ck">✓</span>Your original supplier relationships are unaffected</li>
+          <li><span class="ck">✓</span>No obligation to use our pricing if it isn't better</li>
+        </ul>
+      </div>
+      <div class="nolock-cta-box">
+        <div class="big-zero">Zero.</div>
+        <p style="font-size:.92rem;color:var(--muted);margin:10px 0 22px;">Lock-ins, contracts, or minimum commitments ever.</p>
+        <a href="#apply" class="btn-primary">Apply for Approved Access →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE & ETHICS / WHOLESALER-SAFE -->
+<section id="compliance" class="bg2">
+  <div class="container">
+    <div class="compliance-grid">
+      <div>
+        <span class="section-label reveal">Compliance &amp; Ethics</span>
+        <h2 class="section-title reveal">Built for Compliance.<br><span style="color:var(--green);">Wholesaler-Safe.</span></h2>
+        <p class="section-sub reveal" style="margin-bottom:0;">Affiliate Warehouse is a procurement support and price-monitoring service. This model is built for transparency and efficiency — not disruption to wholesaler relationships or systems.</p>
+        <div class="c-points">
+          <div class="c-point reveal"><div class="c-icon">🏛️</div><div><h4>Operates within existing wholesaler systems and terms</h4><p>No bypassing or workarounds. All purchases use normal wholesaler backend access and full traceability.</p></div></div>
+          <div class="c-point reveal"><div class="c-icon">🔒</div><div><h4>Pricing and availability set solely by wholesalers</h4><p>We never alter supplier terms. Pricing and availability are determined entirely by each wholesaler at all times.</p></div></div>
+          <div class="c-point reveal"><div class="c-icon">📦</div><div><h4>No resale of goods</h4><p>Affiliate Warehouse does not resell products. All purchases are made directly by contractors through wholesaler channels.</p></div></div>
+          <div class="c-point reveal"><div class="c-icon">📋</div><div><h4>All purchases job-coded and fully traceable</h4><p>Every purchase is processed through normal wholesaler channels job-coded, fully traceable, and compliant with supplier requirements.</p></div></div>
+          <div class="c-point reveal"><div class="c-icon">✔️</div><div><h4>Voluntary, non-exclusive participation</h4><p>Contractors and wholesalers participate at their own discretion. No exclusivity is required or implied.</p></div></div>
+        </div>
+      </div>
+      <div class="wh-box reveal">
+        <div class="pill-g">For Wholesalers</div>
+        <h3>This Improves Your Volume <br>Not Your Risk</h3>
+        <p>If you're a wholesaler reviewing this page, here's what Affiliate Warehouse means for your business:</p>
+        <ul class="wh-list">
+          <li>Greater consolidated volume through your existing systems</li>
+          <li>More consistent and predictable purchasing patterns</li>
+          <li>All purchases remain job-coded and fully traceable</li>
+          <li>No changes to your pricing structure or supplier terms</li>
+          <li>Normal backend access and traceability maintained throughout</li>
+          <li>No reselling or alteration of your wholesale terms ever</li>
+          <li>Narrowing where buying occurs nationally improves efficiency for both sides</li>
+        </ul>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
+          <p style="font-size:.84rem;color:var(--muted);font-style:italic;margin-bottom:16px;">"This is collaboration and efficiency — not disruption."</p>
+          <a href="#apply" class="btn-primary" style="font-size:.85rem;padding:11px 22px;display:inline-block;" onclick="setTimeout(()=>{openTab(2)},150)">Wholesaler Expression of Interest →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIVE BUYING EXPLAINED -->
+<section>
+  <div class="container">
+    <span class="section-label reveal">Collective Buying Explained</span>
+    <h2 class="section-title reveal">Independent contractors.<br>Shared purchasing power.</h2>
+    <p class="section-sub reveal">Affiliate Warehouse aggregates purchasing volume across independent preferred contractors nationally. By coordinating purchasing while each contractor retains their own account and full traceability the network can access pricing typically available only to larger operators. This benefits both contractors and the suppliers who service them.</p>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="f-icon gi-gold">🇦🇺</div>
+        <h3>National Network of Independent Contractors</h3>
+        <p>Approved preferred contractors across electrical, HVAC, solar, and related trades choose to coordinate purchasing through a single national structure without giving up their existing supplier relationships or individual account traceability.</p>
+      </div>
+      <div class="feature-card">
+        <div class="f-icon gi-blue">📦</div>
+        <h3>Volume-Enabled Pricing Tiers</h3>
+        <p>Aggregated purchasing volume may enable access to pricing structures typically available to large corporate operators. All outcomes are subject to individual supplier approval and prevailing market conditions no guarantees are made.</p>
+      </div>
+      <div class="feature-card">
+        <div class="f-icon gi-green">🔄</div>
+        <h3>Benefits Both Contractors and Suppliers</h3>
+        <p>Improved volume and purchasing consistency benefits contractors and suppliers alike. Narrowing where the network buys nationally allows for more efficient, transparent, and collaborative purchasing within existing wholesale systems.</p>
+      </div>
+    </div>
+    <div style="margin-top:28px;padding:22px 28px;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--radius);" class="reveal">
+      <p style="font-size:.92rem;color:var(--text);"><strong style="color:var(--white);">Important framing:</strong> Affiliate Warehouse does not force discounts, game pricing systems, or undermine wholesaler terms. Independent preferred contractors choose to participate together and all purchasing remains within existing wholesaler systems at all times. Pricing and availability are determined solely by each wholesaler.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg2">
+  <div class="container">
+    <span class="section-label reveal">FAQ</span>
+    <h2 class="section-title reveal">Frequently Asked Questions</h2>
+    <div class="faq-grid reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is access available to anyone who submits a form?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. Access to Affiliate Warehouse shared trade accounts is never automatic. All applications are individually reviewed and approved based on suitability, compliance, and alignment with our standards. Only approved preferred contractors may access the accounts and receive work from us. Submitting an application does not guarantee approval in any circumstance.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What wholesaler accounts do I get access to?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Approved preferred contractors gain access through TradeZone, Ideal Electrical, and Voltex accounts. These are the same supplier systems you may already use the difference is access through Affiliate Warehouse's corporate-level accounts, which may unlock volume-based pricing structures subject to supplier approval and terms.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How does Affiliate Warehouse make money?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Affiliate Warehouse retains 1.1% of any verified discount achieved on a purchase. If no discount is achieved, there is no charge whatsoever. Fees are billed monthly and apply only where savings have been verifiably confirmed. There are no subscription fees, access costs, or charges based on order volume.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Am I locked in once approved?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. Once approved, there are no contracts, no minimum spend, and no exclusivity requirements. Approved preferred contractors can stop using Affiliate Warehouse at any time with no exit fees or penalties. Your original supplier accounts remain entirely unaffected.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How do I know my pricing is actually improving?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">As a preferred contractor you can run a side-by-side comparison against your original trade accounts at any time. The system tracks pricing over time on repeat purchases, so improvements or increases are clearly visible and based on actual data, not claims.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is this fully compliant with my supplier systems?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Affiliate Warehouse operates within existing wholesaler systems and terms. All purchases use the same backend access and traceability as your regular accounts. Purchases remain job-coded and processed through normal wholesaler channels. No supplier terms are bypassed or altered.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if it stops being useful for my business?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Simply stop using it. There are no exit clauses, no fees for leaving, and no minimum periods. Your original supplier accounts are entirely unaffected at all times.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How are better prices actually achieved?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Better pricing may be achieved through aggregated purchasing volume across our independent preferred contractors nationally. By consistently purchasing together within existing wholesaler systems, the network can access pricing tiers typically reserved for larger operators — subject to supplier approval and prevailing market conditions.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE FORMS -->
+<section id="apply" class="forms-section">
+  <div class="container">
+    <span class="section-label">Formal Application &amp; Onboarding Gateway</span>
+    <h2 class="section-title">Apply for Access or Register Your Status</h2>
+    <p class="section-sub">Select your pathway below. All submissions are formally reviewed before approval and access is granted. Access is never automatic and is limited strictly to approved preferred contractors.</p>
+    <div class="forms-tabs">
+      <button class="form-tab active" onclick="openTab(0)">🔐 Apply / Register as Contractor</button>
+      <button class="form-tab" onclick="openTab(1)">📞 Pre-Application Enquiry</button>
+      <button class="form-tab" onclick="openTab(2)">🏭 Wholesaler Expression of Interest</button>
+    </div>
+
+    <!-- FORM 1 -->
+    <div id="tab0" class="form-panel active">
+      <div class="form-wrap">
+        <div class="form-info">
+          <h2>Preferred Contractor Registration &amp; Application</h2>
+          <p>Use this form if you are an <strong style="color:var(--white);">existing preferred contractor</strong> formally registering for shared account access, or a business <strong style="color:var(--white);">applying for preferred contractor status</strong>.</p>
+          <div class="a-box a-gold">
+            <p class="a-title">⚠️ Important Please Read</p>
+            <p class="a-body">Access is never automatic. Only approved preferred contractors may access shared trade accounts and receive work from Affiliate Warehouse. Submitting this form does not guarantee approval. All applications are assessed for suitability, compliance, and alignment.</p>
+          </div>
+          <div class="form-micro">
+            <span><span class="chk">✓</span>Applications individually assessed for suitability &amp; compliance</span>
+            <span><span class="chk">✓</span>Approval required before any access is granted</span>
+            <span><span class="chk">✓</span>No discount, no charge — ever</span>
+            <span><span class="chk">✓</span>Compare pricing against your existing accounts anytime</span>
+            <span><span class="chk">✓</span>Access: TradeZone, Ideal Electrical, Voltex</span>
+          </div>
+        </div>
+        <div class="form-box">
+          <form onsubmit="handleSubmit(event,'sm0')">
+            <div class="form-row">
+              <div class="form-group"><label>Business Name *</label><input type="text" required placeholder="e.g. Smith Electrical Pty Ltd"></div>
+              <div class="form-group"><label>Contact Name *</label><input type="text" required placeholder="Your full name"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Mobile *</label><input type="tel" required placeholder="04xx xxx xxx"></div>
+              <div class="form-group"><label>Email *</label><input type="email" required placeholder="you@business.com.au"></div>
+            </div>
+            <button type="button" class="cal-btn">📅 Schedule a Call via Calendly</button>
+            <button type="submit" class="sub-btn">Submit Application →</button>
+            <div id="sm0" class="success-msg"><strong>Thanks your application has been received.</strong><br>We'll review your submission for suitability and compliance. If your application progresses, we'll contact you at your scheduled time to walk through the onboarding process. Please note: approval is required before any access is granted.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM 2 -->
+    <div id="tab1" class="form-panel">
+      <div class="form-wrap">
+        <div class="form-info">
+          <h2>Pre-Application Enquiry</h2>
+          <p>Considering applying for preferred contractor status? Book a call to understand the process, approval criteria, and whether your business is likely to be a good fit before formally applying.</p>
+          <div class="a-box a-blue">
+            <p class="a-title">ℹ️ Please Note</p>
+            <p class="a-body">This is an information call only. Access to shared trade accounts requires a formal application and is subject to individual approval. This call does not constitute or initiate a formal application.</p>
+          </div>
+          <div class="form-micro">
+            <span><span class="chk">✓</span>No obligation or commitment</span>
+            <span><span class="chk">✓</span>Understand the approval criteria upfront</span>
+            <span><span class="chk">✓</span>No discount, no charge</span>
+            <span><span class="chk">✓</span>Compare pricing against your current suppliers</span>
+          </div>
+        </div>
+        <div class="form-box">
+          <form onsubmit="handleSubmit(event,'sm1')">
+            <div class="form-row">
+              <div class="form-group"><label>Your Name *</label><input type="text" required placeholder="Your full name"></div>
+              <div class="form-group"><label>Business Name *</label><input type="text" required placeholder="Trading name"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Phone *</label><input type="tel" required placeholder="04xx xxx xxx"></div>
+              <div class="form-group"><label>Email *</label><input type="email" required placeholder="you@business.com.au"></div>
+            </div>
+            <button type="button" class="cal-btn">📅 Schedule a Quick Chat via Calendly</button>
+            <button type="submit" class="sub-btn">Send My Details →</button>
+            <div id="sm1" class="success-msg"><strong>Thanks for booking in.</strong><br>We'll review your details and give you a call at your selected time to walk you through how Affiliate Warehouse works, the approval process, and answer any questions.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM 3 -->
+    <div id="tab2" class="form-panel">
+      <div class="form-wrap">
+        <div class="form-info">
+          <h2>Wholesaler Expression of Interest</h2>
+          <p>Interested in understanding or exploring alignment with Affiliate Warehouse? Submit your details and we'll reach out at your preferred time to discuss the model, compliance approach, and what it means for your business.</p>
+          <div class="form-micro">
+            <span><span class="chk">✓</span>Voluntary, non-exclusive model</span>
+            <span><span class="chk">✓</span>Operates fully within your existing terms</span>
+            <span><span class="chk">✓</span>Improves consolidated volume without disruption</span>
+            <span><span class="chk">✓</span>All purchases remain job-coded and traceable</span>
+          </div>
+        </div>
+        <div class="form-box">
+          <form onsubmit="handleSubmit(event,'sm2')">
+            <div class="form-row">
+              <div class="form-group"><label>Company Name *</label><input type="text" required placeholder="Your wholesale business"></div>
+              <div class="form-group"><label>Contact Name *</label><input type="text" required placeholder="Your full name"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Email *</label><input type="email" required placeholder="you@company.com.au"></div>
+              <div class="form-group"><label>Phone *</label><input type="tel" required placeholder="Business number"></div>
+            </div>
+            <div class="form-group"><label>Message (Optional)</label><textarea placeholder="Tell us about your business or any questions you have…"></textarea></div>
+            <button type="button" class="cal-btn">📅 Schedule a Discussion via Calendly</button>
+            <button type="submit" class="sub-btn">Submit Enquiry →</button>
+            <div id="sm2" class="success-msg"><strong>Thanks we've received your details.</strong><br>We'll review the information provided and call you at your scheduled time to discuss the Affiliate Warehouse model and next steps.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="disclaimer-section">
+  <div class="disclaimer-box">
+    <h4>Legal Disclaimer</h4>
+    <p>Access to Affiliate Warehouse shared trade accounts is subject to formal application and individual approval. Submitting an application does not guarantee access. Only approved preferred contractors may access shared accounts and receive work from Affiliate Warehouse. Access is limited strictly to approved preferred contractors and is never automatic. Pricing and discounts are set by wholesalers and are subject to change without notice. Affiliate Warehouse does not guarantee savings on all products or product categories. Larger or high-volume items typically see stronger results; savings vary by product, supplier, and prevailing market conditions. Fees apply only where verifiable savings occur and are billed monthly on confirmed savings only never on order volume or as a subscription. Participation is non-exclusive and voluntary at all times. Affiliate Warehouse operates within existing wholesaler systems and terms no resale of goods occurs and no wholesaler pricing structures or terms are bypassed or altered.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a class="logo" href="#"><span class="logo-dot"></span>Affiliate Warehouse</a>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#"><span class="__cf_email__" data-cfemail="caa3a4aca58aabacaca3a6a3abbeafbdabb8afa2a5bfb9afe4a9a5a7e4abbf">&#160;affiliate@gmail.com</span></a>
+    </div>
+    <p class="footer-copy">© 2026 Affiliate Warehouse. All rights reserved. Developed By Abdul AL Mahmud</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function toggleFaq(el){
+    const item=el.parentElement,was=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
+  }
+  function openTab(idx){
+    const tabs=document.querySelectorAll('.form-tab');
+    const panels=document.querySelectorAll('.form-panel');
+    tabs.forEach(t=>t.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    tabs[idx].classList.add('active');
+    document.getElementById('tab'+idx).classList.add('active');
+    document.getElementById('apply').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function handleSubmit(e,msgId){
+    e.preventDefault();
+    document.getElementById(msgId).style.display='block';
+    e.target.querySelectorAll('input,textarea,button').forEach(el=>el.disabled=true);
+  }
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');e.target.classList.remove('animate-ready');obs.unobserve(e.target);}});
+  },{threshold:0.07});
+  document.querySelectorAll('.reveal').forEach(el=>{el.classList.add('animate-ready');obs.observe(el);});
+  const secs=document.querySelectorAll('section[id]');
+  window.addEventListener('scroll',()=>{
+    let cur='';
+    secs.forEach(s=
